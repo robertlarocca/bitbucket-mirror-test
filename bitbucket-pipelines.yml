@@ -1,10 +1,21 @@
-clone:
-  depth: full
+# clone:
+#   depth: full
+
+# pipelines:
+#   default:
+#     - step:
+#         name: 'Mirror to Github ...'
+#         script:
+#           - git push --all git@github.com:robertlarocca/bitbucket-mirror-test.git
+#           - git push --mirror git@github.com:robertlarocca/bitbucket-mirror-test.git
 
 pipelines:
   default:
     - step:
-        name: 'Mirror to Github ...'
+        name: 'Mirror Bitbucket to Github ...'
+        clone:
+          enabled: false
         script:
-          - git push --all git@github.com:robertlarocca/bitbucket-mirror-test.git
-#         - git push --mirror git@github.com:robertlarocca/bitbucket-mirror-test.git
+          - git clone --bare git@bitbucket.org:robertlarocca/github-mirror-test.git
+          - cd github-mirror-test.git
+          - git@github.com:robertlarocca/bitbucket-mirror-test.git

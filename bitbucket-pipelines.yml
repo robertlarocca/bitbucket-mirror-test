@@ -12,7 +12,7 @@
 pipelines:
   default:
     - step:
-        name: 'Mirror Bitbucket to Github ...'
+        name: 'Mirror Bitbucket to Github'
         clone:
           enabled: false
         script:

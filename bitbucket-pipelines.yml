@@ -29,6 +29,7 @@ pipelines:
   default:
     - step:
         name: "Synchronize and mirror this Bitbucket repository to Github..."
+        image: atlassian/default-image:latest
         clone:
           enabled: false
         script:

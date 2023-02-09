@@ -34,4 +34,8 @@ pipelines:
         script:
           - git clone --mirror git@bitbucket.org:robertlarocca/github-mirror-test.git
           - cd github-mirror-test.git
+          - git fetch --all origin;
+          - git fetch --tags origin;
           - git push --all git@github.com:robertlarocca/bitbucket-mirror-test.git
+          - git push --tags git@github.com:robertlarocca/bitbucket-mirror-test.git
+        # - git push --mirror git@github.com:robertlarocca/bitbucket-mirror-test.git

@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# Ignore files
+=======
 # These are some examples of commonly ignored file patterns.
 # You should customize this list as applicable to your project.
 # Learn more about .gitignore:
@@ -47,3 +50,4 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
+>>>>>>> e613297a11b2f3525615aa3d89f1027c7a477abf

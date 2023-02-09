@@ -10,6 +10,13 @@
 # and creates and checks out an initial branch that is forked from
 # the cloned repository’s currently active branch.
 #
+# Before fetching all remotes, remove any remote-tracking references
+# that no longer exist on the remote. Tags are not subject to pruning
+# if they are fetched only because of the default tag auto-following or
+# due to a tags option. However, if tags are fetched due to an explicit
+# refspec because the remote was cloned with the mirror option, then they
+# are also subject to pruning.
+#
 # Mirror specifies that all refs under refs/ (which includes but not
 # limited to refs/heads/, refs/remotes/, and refs/tags/) be mirrored
 # to the remote repository. Newly created local refs will be pushed
@@ -33,11 +40,10 @@ pipelines:
         clone:
           enabled: false
         script:
-          - git clone --mirror git@bitbucket.org:robertlarocca/github-mirror-test.git
-          - cd github-mirror-test.git
-          - git fetch --all
-          - git fetch --prune origin
+          - git clone --mirror $BITBUCKET_GIT_SSH_ORIGIN
+          - cd $BITBUCKET_CLONE_DIR
+          - git fetch --all --prune
           - git remote set-url --push origin git@github.com:robertlarocca/bitbucket-mirror-test.git
           - git push --mirror
-          - cd ..
-          - rm -rf github-mirror-test.git
+          - cd ~
+          - rm -rf $BITBUCKET_CLONE_DIR

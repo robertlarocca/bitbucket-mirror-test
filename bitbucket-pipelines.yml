@@ -1,0 +1,9 @@
+clone:
+  depth: full
+
+pipelines:
+  default:
+    - step:
+        name: 'Mirror to Github repo....'
+        script:
+          - git push --mirror git@github.com:my-repo/repo.git --all

@@ -35,5 +35,9 @@ pipelines:
         script:
           - git clone --mirror git@bitbucket.org:robertlarocca/github-mirror-test.git
           - cd github-mirror-test.git
-          - git fetch --all --prune
-          - git push --mirror --force git@github.com:robertlarocca/bitbucket-mirror-test.git
+          - git remote set-url --push origin git@github.com:robertlarocca/bitbucket-mirror-test.git
+          - git fetch --all
+          - git fetch --prune origin
+          - git push --mirror
+          - cd ..
+          - rm -rf github-mirror-test.git

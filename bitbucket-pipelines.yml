@@ -7,3 +7,4 @@ pipelines:
         name: 'Mirror to Github ...'
         script:
           - git push --mirror git@github.com:robertlarocca/bitbucket-mirror-test.git
+

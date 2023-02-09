@@ -40,7 +40,7 @@ pipelines:
         clone:
           enabled: false
         script:
-          - git clone --mirror $BITBUCKET_GIT_SSH_ORIGIN
+          - git clone --mirror $BITBUCKET_GIT_SSH_ORIGIN $BITBUCKET_CLONE_DIR
           - cd $BITBUCKET_CLONE_DIR
           - git fetch --all --prune
           - git remote set-url --push origin git@github.com:robertlarocca/bitbucket-mirror-test.git

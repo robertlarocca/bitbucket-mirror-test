@@ -4,14 +4,14 @@ Synchronize (and mirror) a Bitbucket repository to GitHub.
 
 This uses Pipelines the Bitbucket integrated CI/CD service to automate remote mirroring after every push.
 
-## What is Required?
+### What is Required?
 
 -   Access to configure repositories on both Bitbucket and GitHub.
 -   A OpenSSH generated `ssh-ed25519` keypair (not PuTTY).
 -   Mirror URL to GitHub repository (same as clone with ssh).
 -   Available Bitbucket Pipelines minutes (50 minutes free per month).
 
-## How does it work?
+### How does it work?
 
 Clones the repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository and creates and checks out an initial branch that is forked from the cloned repository’s currently active branch.
 
@@ -64,6 +64,6 @@ pipelines:
                   # - git lfs push --all
 ```
 
-## Does Large File Support work?
+### Does Large File Support work?
 
 Git Large File Support is provided by both Bitbucket and Github but must be enabled on the repositories before you uncomment the commands in your pipeline configuration. The pipeline will fail with runtime errors if included and `git lfs` is not enabled on both.

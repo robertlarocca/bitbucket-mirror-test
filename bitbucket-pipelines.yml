@@ -31,8 +31,8 @@
 # - Mirror URL to GitHub repository (same as clone with ssh).
 # - Available Bitbucket Pipelines minutes (50 free minutes per month).
 #
-# Git Large File Support (git lfs) is supported but must be enabled
-# in the repository before uncommented here.
+# Git Large File Support is supported but must be enabled on the
+# repository before you uncomment here to prevent errors.
 #
 
 pipelines:

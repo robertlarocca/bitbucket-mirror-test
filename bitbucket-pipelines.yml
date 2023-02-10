@@ -42,8 +42,8 @@ pipelines:
         script:
           - git clone --mirror $BITBUCKET_GIT_SSH_ORIGIN $BITBUCKET_CLONE_DIR
           - cd $BITBUCKET_CLONE_DIR
-          - git lfs fetch --all
+          # - git lfs fetch --all
           - git fetch --all --prune
           - git remote set-url --push origin git@github.com:robertlarocca/bitbucket-mirror-test.git
           - git push --mirror
-          - git lfs push --all
+          # - git lfs push --all

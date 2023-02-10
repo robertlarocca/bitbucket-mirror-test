@@ -1,40 +1,5 @@
 # Synchronize (and mirror) this Bitbucket repository to GitHub.
 
-# Uses the Bitbucket Pipelines integrated CI/CD service
-# to automate after every push.
-#
-# How does it work?
-#
-# Clones the repository into a newly created directory, creates
-# remote-tracking branches for each branch in the cloned repository
-# and creates and checks out an initial branch that is forked from
-# the cloned repository’s currently active branch.
-#
-# Before fetching all remotes, remove any remote-tracking references
-# that no longer exist on the remote. Tags are not subject to pruning
-# if they are fetched only because of the default tag auto-following or
-# due to a tags option. However, if tags are fetched due to an explicit
-# refspec because the remote was cloned with the mirror option, then they
-# are also subject to pruning.
-#
-# Mirror specifies that all refs under refs/ (which includes but not
-# limited to refs/heads/, refs/remotes/, and refs/tags/) be mirrored
-# to the remote repository. Newly created local refs will be pushed
-# to the remote end, locally updated refs will be force updated on the
-# remote end, and deleted refs will be removed from the remote end.
-#
-# What is Required?
-#
-# - Access to configure repositories on Bitbucket and GitHub.
-# - Generate a OpenSSH formatted ssh-ed25519 keypair (not with PuTTY).
-# - Source URL to Bitbucket repository (same as clone with ssh).
-# - Mirror URL to GitHub repository (same as clone with ssh).
-# - Available Bitbucket Pipelines minutes (50 free minutes per month).
-#
-# Git Large File Support is supported but must be enabled on the
-# repository before you uncomment here to prevent errors.
-#
-
 pipelines:
   default:
     - step:
